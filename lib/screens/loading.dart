@@ -1,8 +1,13 @@
+// ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
 import 'package:weather_app/data/my_location.dart';
 import 'package:weather_app/data/network.dart';
 import 'package:weather_app/screens/weather_screen.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+
 const apiKey = 'e100795bae42d8eebf1c3e4c4c99f919';
+
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -68,17 +73,12 @@ class _LoadingState extends State<Loading> {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
+      backgroundColor: Colors.amber,
       body: Center(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.white
-          ),
-          onPressed:(){
-
-          },
-          child: const Text('Get my location'),
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 80,
         ),
       ),
     );
